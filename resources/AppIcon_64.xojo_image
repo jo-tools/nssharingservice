@@ -1,0 +1,43 @@
+#tag MultiImage
+Image AppIcon_64
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGcAAAAAAGcAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8OQXBwSWNvbl82NC5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBRLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOm5zc2hhcmluZ3NlcnZpY2U6cmVzb3VyY2VzOkFwcEljb25fNjQucG5nAAAOAB4ADgBBAHAAcABJAGMAbwBuAF8ANgA0AC4AcABuAGcADwAYAAsAQwBhAGQAbQBpAHUAbQAgAFMAUwBEABIAT1VzZXJzL2p1ZXJnL0RvY3VtZW50cy9HaXRIdWIvam8tdG9vbHMvbnNzaGFyaW5nc2VydmljZS9yZXNvdXJjZXMvQXBwSWNvbl82NC5wbmcAABMAAS8AABUAAgAM//8AAAAAAAAAAA==
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/nssharingservice/resources/AppIcon_64.png
+		PartialPath = resources\AppIcon_64.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 64.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 64.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGeAAAAAAGeAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8PQXBwSWNvbl8xMjgucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBSLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOm5zc2hhcmluZ3NlcnZpY2U6cmVzb3VyY2VzOkFwcEljb25fMTI4LnBuZwAOACAADwBBAHAAcABJAGMAbwBuAF8AMQAyADgALgBwAG4AZwAPABgACwBDAGEAZABtAGkAdQBtACAAUwBTAEQAEgBQVXNlcnMvanVlcmcvRG9jdW1lbnRzL0dpdEh1Yi9qby10b29scy9uc3NoYXJpbmdzZXJ2aWNlL3Jlc291cmNlcy9BcHBJY29uXzEyOC5wbmcAEwABLwAAFQACAAz//wAAAAAAAAAA
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/nssharingservice/resources/AppIcon_128.png
+		PartialPath = resources\AppIcon_128.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 64.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 64.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 64.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 64.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage
