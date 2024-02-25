@@ -1,7 +1,7 @@
 #tag Module
 Protected Module modNSSharingService
-	#tag CompatibilityFlags = ( TargetConsole and ( Target32Bit or Target64Bit ) ) or ( TargetDesktop and ( Target32Bit or Target64Bit ) )
-	#tag Method, Flags = &h21
+	#tag CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function BuildNSSharingServiceDelegateClass() As Ptr
 		  #If TargetMacOS And Target64Bit Then
 		    Declare Function NSClassFromString Lib "Foundation" (aClassName As CFStringRef) As Ptr
@@ -40,7 +40,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function ComposeEmail(psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
@@ -57,7 +57,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function ComposeMessage(psTo As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
@@ -74,7 +74,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402710-sharingservice?language=objc
@@ -100,7 +100,7 @@ Protected Module modNSSharingService
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr)
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402638-sharingservice?language=objc
@@ -117,7 +117,7 @@ Protected Module modNSSharingService
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402679-sharingservice?language=objc
@@ -137,7 +137,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function NSSharingServiceName_ToString_ToString(SharingServiceName As NSSharingServiceName) As String
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicename?language=objc
@@ -155,7 +155,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function PerformWithItems(psPerformWithNSSharingServiceName As NSSharingServiceName, psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  mWeakRefShowWithinWindow = Nil
 		  mResultCallbackDelegate = Nil
@@ -257,11 +257,11 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag DelegateDeclaration, Flags = &h21
+	#tag DelegateDeclaration, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Delegate Sub ResultCallbackDelegate(pbSuccess As Boolean, piErrorCode As Integer, psErrorMessage As String)
 	#tag EndDelegateDeclaration
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function SendViaAirDrop(poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
@@ -279,26 +279,26 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private mResultCallbackDelegate As ResultCallbackDelegate
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private mWeakRefShowWithinWindow As WeakRef
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private ptrDelegateClass As Ptr
 	#tag EndProperty
 
 
-	#tag Enum, Name = NSSharingContentScope, Type = Int32, Flags = &h21
+	#tag Enum, Name = NSSharingContentScope, Type = Int32, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Item=0
 		  Partial=1
 		Full=2
 	#tag EndEnum
 
-	#tag Enum, Name = NSSharingServiceName, Type = Integer, Flags = &h21
+	#tag Enum, Name = NSSharingServiceName, Type = Integer, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		ComposeEmail=1
 		  ComposeMessage=2
 		SendViaAirDrop=3
