@@ -183,13 +183,13 @@ Protected Module modNSSharingService
 		    
 		    'Separators supported: ; and ,
 		    'Split Recipients to get an Array
-		    Var sRecipients() As String = Split(ReplaceAll(psTo, ";", ","), ",")
-		    For i As Integer = sRecipients.Ubound DownTo 0
-		      sRecipients(i) = Trim(sRecipients(i))
+		    Var sRecipients() As String = psTo.ReplaceAll(";", ",").Split(",")
+		    For i As Integer = sRecipients.LastIndex DownTo 0
+		      sRecipients(i) = sRecipients(i).Trim
 		    Next
 		    
-		    Var sSubject As String = Trim(psSubject)
-		    Var sBody As String = Trim(psBody)
+		    Var sSubject As String = psSubject.Trim
+		    Var sBody As String = psBody.Trim
 		    
 		    Var oAttachments() As FolderItem = poAttachments
 		    
@@ -233,7 +233,7 @@ Protected Module modNSSharingService
 		    Declare Function fileURLWithPath Lib "Foundation" selector "fileURLWithPath:" ( ptrNSURLClass As Ptr, path As CFStringRef ) As Ptr
 		    For Each oAttachFolderItem As FolderItem In oAttachments
 		      'just existing Files, no Folders
-		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.Directory Then Continue
+		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.IsFolder Then Continue
 		      
 		      'NSURL for Attachment
 		      Var ptrNSURLClass As Ptr = NSClassFromString("NSURL")

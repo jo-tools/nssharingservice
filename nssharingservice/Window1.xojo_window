@@ -819,20 +819,20 @@ End
 		    'Validation: E-Mail
 		    '******************
 		    'just a very basic validation: we want some content
-		    If (Trim(edtContent.Text) = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
+		    If (edtContent.Text.Trim = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
 		    'we want a subject
-		    If (Trim(edtSubject.Text) = "") Then bAllOK = False
+		    If (edtSubject.Text.Trim = "") Then bAllOK = False
 		    'and we need a To: this could be much better and check for valid email address(es)
-		    If (Trim(edtTo.Text) = "") Then bAllOK = False
+		    If (edtTo.Text.Trim = "") Then bAllOK = False
 		  End If
 		  
 		  If bMessages Then
 		    'Validation: Messages
 		    '********************
 		    'just a very basic validation: we want some content
-		    If (Trim(edtContent.Text) = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
+		    If (edtContent.Text.Trim = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
 		    'and we need a To: this could be much better and check for valid email address(es)
-		    If (Trim(edtTo.Text) = "") Then bAllOK = False
+		    If (edtTo.Text.Trim = "") Then bAllOK = False
 		  End If
 		  
 		  If bAirdrop Then
@@ -873,7 +873,7 @@ End
 		  'labContent.Enabled = edtContent.Enabled
 		  
 		  'Dis/Enable Button
-		  btnSharingService.Caption = NthField(lstSharingService.SelectedRowText, " ", 1)
+		  btnSharingService.Caption = lstSharingService.SelectedRowText.NthField(" ", 1)
 		  If (btnSharingService.Enabled <> bAllOK) Then btnSharingService.Enabled = bAllOK
 		End Sub
 	#tag EndMethod
@@ -901,7 +901,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
 		  end if
 		End Sub
 	#tag EndEvent
@@ -936,7 +936,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
 		  end if
 		End Sub
 	#tag EndEvent
@@ -995,7 +995,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:xojo@jo-tools.ch")
 		  end if
 		End Sub
 	#tag EndEvent
@@ -1005,13 +1005,11 @@ End
 		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
-		  g.ForeColor = &cFFFFFF
-		  #if (XojoVersion >= 2018.03) then
-		    if IsDarkMode then g.ForeColor = &cD0D0D0
-		  #endif
-		  g.FillRect(0, 0, g.Width, g.Height)
-		  g.ForeColor = &c909090
-		  g.DrawRect(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &cFFFFFF
+		  If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &c909090
+		  g.DrawRectangle(0, 0, g.Width, g.Height)
 		  g.DrawPicture(PayPal, 3, 2, 100, 26, 0, 0, PayPal.Width, PayPal.Height)
 		End Sub
 	#tag EndEvent
@@ -1028,9 +1026,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://paypal.me/jotools")
-		  end if
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
+		    System.GotoURL("https://paypal.me/jotools")
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1097,12 +1095,12 @@ End
 		    'Add
 		    Var f As FolderItem
 		    Var dlg As New OpenFileDialog
-		    dlg.InitialDirectory = SpecialFolder.Desktop
+		    dlg.InitialFolder = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
 		    f = dlg.ShowModal(Self)
 		    
-		    If (f <> Nil) And (f.Directory = False) And f.Exists Then
+		    If (f <> Nil) And (f.IsFolder = False) And f.Exists Then
 		      eoAttachment1 = f
 		      labAttachment1.Text = f.DisplayName
 		      Me.Caption = "Del"
@@ -1125,13 +1123,13 @@ End
 		  If (eoAttachment2 = Nil) Then
 		    'Add
 		    Var f As FolderItem
-		    Var dlg As New OpenDialog
-		    dlg.InitialDirectory = SpecialFolder.Desktop
+		    Var dlg As New OpenFileDialog
+		    dlg.InitialFolder = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
 		    f = dlg.ShowModal(Self)
 		    
-		    If (f <> Nil) And (f.Directory = False) And f.Exists Then
+		    If (f <> Nil) And (f.IsFolder = False) And f.Exists Then
 		      eoAttachment2 = f
 		      labAttachment2.Text = f.DisplayName
 		      Me.Caption = "Del"
@@ -1173,14 +1171,14 @@ End
 		Sub Pressed()
 		  'Separators supported: ; and ,
 		  'Split Recipients to get an Array
-		  Var sRecipients() As String = Split(ReplaceAll(edtTo.Text, ";", ","), ",")
-		  For i As Integer = sRecipients.Ubound DownTo 0
-		    sRecipients(i) = Trim(sRecipients(i))
+		  Var sRecipients() As String = edtTo.Text.ReplaceAll(";", ",").Split(",")
+		  For i As Integer = sRecipients.LastIndex DownTo 0
+		    sRecipients(i) = sRecipients(i).Trim
 		  Next
 		  
 		  Var oAttachments() As FolderItem
-		  If (eoAttachment1 <> Nil) And (Not eoAttachment1.Directory) And eoAttachment1.Exists Then oAttachments.Append(eoAttachment1)
-		  If (eoAttachment2 <> Nil) And (Not eoAttachment2.Directory) And eoAttachment2.Exists Then oAttachments.Append(eoAttachment2)
+		  If (eoAttachment1 <> Nil) And (Not eoAttachment1.IsFolder) And eoAttachment1.Exists Then oAttachments.Add(eoAttachment1)
+		  If (eoAttachment2 <> Nil) And (Not eoAttachment2.IsFolder) And eoAttachment2.Exists Then oAttachments.Add(eoAttachment2)
 		  
 		  #If TargetMacOS And Target64Bit Then
 		    'let NSSharingService perform...
@@ -1197,7 +1195,7 @@ End
 		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
 		      end if
 		    elseif (lstSharingService.SelectedRowIndex = 2) then
-		      If (oAttachments.Ubound < 0) Then
+		      If (oAttachments.LastIndex < 0) Then
 		        Self.ShowMessageBox_Warning "No Attachment(s) selected."
 		        Return
 		      End If
