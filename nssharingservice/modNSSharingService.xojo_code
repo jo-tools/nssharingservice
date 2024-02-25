@@ -128,8 +128,8 @@ Protected Module modNSSharingService
 		    mbSharingContentScope.Int32Value(0) = CType(NSSharingContentScope.Item, Int32)
 		    
 		    'return the Window, so that NSSharingService will show modally on it
-		    If (mWeakRefShowWithinWindow <> Nil) And (mWeakRefShowWithinWindow.Value IsA Window) Then
-		      Return Ptr(Window(mWeakRefShowWithinWindow.Value).Handle)
+		    If (mWeakRefShowWithinWindow <> Nil) And (mWeakRefShowWithinWindow.Value IsA DesktopWindow) Then
+		      Return Ptr(DesktopWindow(mWeakRefShowWithinWindow.Value).Handle)
 		    End If
 		    
 		    Return Nil
