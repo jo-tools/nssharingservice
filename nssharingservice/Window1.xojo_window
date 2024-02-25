@@ -29,9 +29,7 @@ Begin DesktopWindow Window1
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   "True"
       Height          =   64
       HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
       Index           =   -2147483648
@@ -55,8 +53,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labAppName
       AutoDeactivate  =   True
       Bold            =   True
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
@@ -90,8 +86,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labThanks
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
@@ -125,8 +119,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labAppVersion
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
@@ -160,8 +152,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labContact
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "xojo@jo-tools.ch"
@@ -197,9 +187,7 @@ Begin DesktopWindow Window1
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   "True"
       Height          =   30
       HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
@@ -221,6 +209,7 @@ Begin DesktopWindow Window1
       Width           =   106
    End
    Begin DesktopSeparator Separator2
+      AllowTabStop    =   True
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   3
@@ -236,7 +225,6 @@ Begin DesktopWindow Window1
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   100
       Transparent     =   True
       Visible         =   True
@@ -245,8 +233,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labTo
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   "Note: Recipient are being Split by ; and ,"
@@ -286,8 +272,6 @@ Begin DesktopWindow Window1
       Bold            =   False
       Border          =   True
       CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   22
@@ -323,8 +307,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labSubject
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   ""
@@ -364,8 +346,6 @@ Begin DesktopWindow Window1
       Bold            =   False
       Border          =   True
       CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   22
@@ -401,8 +381,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labContent
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   ""
@@ -441,8 +419,6 @@ Begin DesktopWindow Window1
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   127
@@ -485,8 +461,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labAttachments
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -552,8 +526,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labAttachment1
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -619,8 +591,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labAttachment2
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -652,6 +622,7 @@ Begin DesktopWindow Window1
       Width           =   380
    End
    Begin DesktopSeparator sepSharingService
+      AllowTabStop    =   True
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   4
@@ -667,7 +638,6 @@ Begin DesktopWindow Window1
       Scope           =   2
       TabIndex        =   18
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   389
       Transparent     =   False
       Visible         =   True
@@ -676,8 +646,6 @@ Begin DesktopWindow Window1
    Begin DesktopLabel labSharingService
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -711,8 +679,6 @@ Begin DesktopWindow Window1
    Begin DesktopPopupMenu lstSharingService
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -793,22 +759,50 @@ End
 	#tag Method, Flags = &h21
 		Private Sub SharingServiceResult(pbSuccess As Boolean, piErrorCode As Integer, psErrorMessage As String)
 		  If pbSuccess Then
-		    
-		    Var d As New MessageDialog
-		    d.IconType = MessageDialog.IconTypes.Note
-		    d.ActionButton.Caption = "OK"
-		    d.CancelButton.Visible = False
-		    d.AlternateActionButton.Visible = False
-		    d.Message = "NSSharingService has successfully shared the item(s)."
-		    d.Explanation = ""
-		    Call d.ShowModal(Self)
-		    
+		    ShowMessageBox_Info "NSSharingService has successfully shared the item(s)."
 		    Return
 		  End If
 		  
 		  If (psErrorMessage = "") Then psErrorMessage = "NSSharingService failed to share the item(s)."
-		  If (piErrorCode <> 0) Then psErrorMessage = psErrorMessage + EndOfLine + EndOfLine + "ErrorCode: " + Str(piErrorCode)
-		  MsgBox psErrorMessage
+		  
+		  Var sErrorCodeInfo As String = ""
+		  If (piErrorCode <> 0) Then sErrorCodeInfo = "ErrorCode: " + Str(piErrorCode)
+		  ShowMessageBox_Error psErrorMessage, sErrorCodeInfo
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox(psText As String, psExplanation As String, iconType As MessageDialog.IconTypes)
+		  Var d As New MessageDialog
+		  d.IconType = iconType
+		  d.ActionButton.Caption = "OK"
+		  d.CancelButton.Visible = False
+		  d.AlternateActionButton.Visible = False
+		  d.Message = psText
+		  d.Explanation = psExplanation
+		  Call d.ShowModal(Self)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Error(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Stop)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Info(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Note)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Warning(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Caution)
 		  
 		End Sub
 	#tag EndMethod
@@ -1176,30 +1170,30 @@ End
 		      if modNSSharingService.ComposeEmail(edtTo.Text, edtSubject.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
 		        'will perform, wait for callback in SharingServiceResult
 		      else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.ComposeEmail."
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeEmail."
 		      end if
 		    ElseIf (lstSharingService.SelectedRowIndex = 1) Then
 		      if modNSSharingService.ComposeMessage(edtTo.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
 		        'will perform, wait for callback in SharingServiceResult
 		      else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
 		      end if
 		    elseif (lstSharingService.SelectedRowIndex = 2) then
 		      If (oAttachments.Ubound < 0) Then
-		        MsgBox "No Attachment(s) selected."
+		        Self.ShowMessageBox_Warning "No Attachment(s) selected."
 		        Return
 		      End If
 		      If modNSSharingService.SendViaAirDrop(oAttachments, self, WeakAddressOf self.SharingServiceResult) Then
 		        'will perform, wait for callback in SharingServiceResult
 		      Else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.SendViaAirDrop."
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.SendViaAirDrop."
 		      End If
 		    else
-		      MsgBox "Oops, unknown Sharing Service."
+		      Self.ShowMessageBox_Error "Oops, unknown Sharing Service."
 		    end if
 		    
 		  #Else
-		    MsgBox "This example is for macOS 64Bit only."
+		    Self.ShowMessageBox_Warning "This example is for macOS 64Bit only."
 		  #EndIf
 		End Sub
 	#tag EndEvent
