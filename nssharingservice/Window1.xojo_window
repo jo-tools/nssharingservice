@@ -893,6 +893,8 @@ End
 #tag Events cnvAppIcon
 	#tag Event
 		Sub Paint(g As Graphics, areas() As Rect)
+		  #Pragma unused areas
+		  
 		  g.DrawPicture(AppIcon_64, 0, 0)
 		End Sub
 	#tag EndEvent
@@ -905,7 +907,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  return true
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -937,7 +942,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  return true
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -978,7 +986,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  return true
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -992,6 +1003,8 @@ End
 #tag Events cnvPayPal
 	#tag Event
 		Sub Paint(g As Graphics, areas() As Rect)
+		  #Pragma unused areas
+		  
 		  g.ForeColor = &cFFFFFF
 		  #if (XojoVersion >= 2018.03) then
 		    if IsDarkMode then g.ForeColor = &cD0D0D0
@@ -1022,7 +1035,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  return true
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -1146,7 +1162,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub SelectionChanged(item As DesktopMenuItem)
-		  self.ValidateContent()
+		  #Pragma unused item
+		  
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents

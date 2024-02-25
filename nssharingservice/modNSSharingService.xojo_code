@@ -76,6 +76,11 @@ Protected Module modNSSharingService
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
+		  #Pragma unused id
+		  #Pragma unused Selector
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402710-sharingservice?language=objc
 		    //- (void)sharingService:(NSSharingService *)sharingService didFailToShareItems:(NSArray *)items error:(NSError *)error;
@@ -102,6 +107,11 @@ Protected Module modNSSharingService
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr)
+		  #pragma unused id
+		  #Pragma unused Selector
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402638-sharingservice?language=objc
 		    //- (void)sharingService:(NSSharingService *)sharingService didShareItems:(NSArray *)items;
@@ -119,6 +129,11 @@ Protected Module modNSSharingService
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
+		  #Pragma unused id
+		  #Pragma unused Selector
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402679-sharingservice?language=objc
 		    //- (NSWindow *)sharingService:(NSSharingService *)sharingService sourceWindowForShareItems:(NSArray *)items sharingContentScope:(NSSharingContentScope *)sharingContentScope;
