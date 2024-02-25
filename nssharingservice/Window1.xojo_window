@@ -59,7 +59,7 @@ Begin DesktopWindow Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   140
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -72,7 +72,7 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "NSSharingService"
-      TextAlign       =   2
+      TextAlign       =   0
       TextColor       =   &c0072D800
       TextFont        =   "System"
       TextSize        =   0.0
@@ -81,7 +81,7 @@ Begin DesktopWindow Window1
       Transparent     =   True
       Underline       =   True
       Visible         =   True
-      Width           =   200
+      Width           =   219
    End
    Begin DesktopLabel labThanks
       AutoDeactivate  =   True
@@ -125,7 +125,7 @@ Begin DesktopWindow Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   140
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -138,7 +138,7 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlign       =   2
+      TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
@@ -147,7 +147,7 @@ Begin DesktopWindow Window1
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   219
    End
    Begin DesktopLabel labContact
       AutoDeactivate  =   True
