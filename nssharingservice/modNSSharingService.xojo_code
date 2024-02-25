@@ -1,7 +1,7 @@
 #tag Module
 Protected Module modNSSharingService
-	#tag CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit))
-	#tag Method, Flags = &h21
+	#tag CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function BuildNSSharingServiceDelegateClass() As Ptr
 		  #If TargetMacOS And Target64Bit Then
 		    Declare Function NSClassFromString Lib "Foundation" (aClassName As CFStringRef) As Ptr
@@ -12,11 +12,11 @@ Protected Module modNSSharingService
 		    Declare Function class_addProtocol Lib "Foundation" (cls As Ptr, proto As Ptr) As Boolean
 		    Declare Function class_addMethod Lib "Foundation"  (cls As Ptr, name As Ptr, imp As Ptr, types As CString) As Boolean
 		    Declare Function NSSelectorFromString Lib "Foundation" (aSelectorName As CFStringRef) As Ptr
-		    Declare Function alloc Lib "Foundation" selector "alloc" (classRef As Ptr) As Ptr
-		    Declare Function init Lib "Foundation" selector "init" (classRef As Ptr) As Ptr
+		    Declare Function alloc Lib "Foundation" Selector "alloc" (classRef As Ptr) As Ptr
+		    Declare Function init Lib "Foundation" Selector "init" (classRef As Ptr) As Ptr
 		    
 		    'create the NSSharingServiceDelegateHandler
-		    Dim delegateClass As Ptr = objc_allocateClassPair(NSClassFromString("NSObject"), "NSSharingServiceDelegateHandler", 0)
+		    Var delegateClass As Ptr = objc_allocateClassPair(NSClassFromString("NSObject"), "NSSharingServiceDelegateHandler", 0)
 		    If (delegateClass = Nil) Then
 		      'Maybe it already exists. Let's check:
 		      delegateClass = objc_lookUpClass("NSSharingServiceDelegateHandler")
@@ -25,7 +25,7 @@ Protected Module modNSSharingService
 		      objc_registerClassPair(delegateClass)
 		      
 		      'and add the protocol: NSSharingServiceDelegate
-		      Dim delegateProtocol As Ptr = objc_getProtocol("NSSharingServiceDelegate")  //get protocol type
+		      Var delegateProtocol As Ptr = objc_getProtocol("NSSharingServiceDelegate")  //get protocol type
 		      If (Not class_addProtocol(delegateClass, delegateProtocol)) Then Break //add protocol to class
 		    End If
 		    If (delegateClass = Nil) Then Break
@@ -40,8 +40,8 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function ComposeEmail(psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Function ComposeEmail(psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -57,8 +57,8 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function ComposeMessage(psTo As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Function ComposeMessage(psTo As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -74,20 +74,25 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
+		  #Pragma unused id
+		  #Pragma unused selectorPtr
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402710-sharingservice?language=objc
 		    //- (void)sharingService:(NSSharingService *)sharingService didFailToShareItems:(NSArray *)items error:(NSError *)error;
 		    
-		    Declare Function code Lib "Foundation" selector "code" ( ptrNSError As Ptr ) As Integer
+		    Declare Function code Lib "Foundation" Selector "code" ( ptrNSError As Ptr ) As Integer
 		    'Declare Function domain Lib "Foundation" selector "domain" ( ptrNSError As Ptr ) As CFStringRef
-		    Declare Function localizedDescription Lib "Foundation" selector "localizedDescription" ( ptrNSError As Ptr ) As CFStringRef
+		    Declare Function localizedDescription Lib "Foundation" Selector "localizedDescription" ( ptrNSError As Ptr ) As CFStringRef
 		    
 		    'get information out of the NSError
-		    Dim iError As Integer = code(error)
-		    'Dim sDomain As String = domain(error)
-		    Dim sError As String = localizedDescription(error)
+		    Var iError As Integer = code(error)
+		    'Var sDomain As String = domain(error)
+		    Var sError As String = localizedDescription(error)
 		    
 		    'invoke the callback with the result
 		    If (mResultCallbackDelegate <> Nil) Then
@@ -100,8 +105,13 @@ Protected Module modNSSharingService
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr)
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr)
+		  #Pragma unused id
+		  #Pragma unused selectorPtr
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402638-sharingservice?language=objc
 		    //- (void)sharingService:(NSSharingService *)sharingService didShareItems:(NSArray *)items;
@@ -113,23 +123,28 @@ Protected Module modNSSharingService
 		    
 		    mResultCallbackDelegate = Nil
 		    mWeakRefShowWithinWindow = Nil
-		  #endif
+		  #EndIf
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
+		  #Pragma unused id
+		  #Pragma unused selectorPtr
+		  #Pragma unused sharingServiceInstance
+		  #Pragma unused items
+		  
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402679-sharingservice?language=objc
 		    //- (NSWindow *)sharingService:(NSSharingService *)sharingService sourceWindowForShareItems:(NSArray *)items sharingContentScope:(NSSharingContentScope *)sharingContentScope;
 		    
 		    'configure that we're sharing item(s), and not partial or full content
-		    Dim mbSharingContentScope As MemoryBlock = sharingContentScope
+		    Var mbSharingContentScope As MemoryBlock = sharingContentScope
 		    mbSharingContentScope.Int32Value(0) = CType(NSSharingContentScope.Item, Int32)
 		    
 		    'return the Window, so that NSSharingService will show modally on it
-		    If (mWeakRefShowWithinWindow <> Nil) And (mWeakRefShowWithinWindow.Value IsA Window) Then
-		      Return Ptr(Window(mWeakRefShowWithinWindow.Value).Handle)
+		    If (mWeakRefShowWithinWindow <> Nil) And (mWeakRefShowWithinWindow.Value IsA DesktopWindow) Then
+		      Return Ptr(DesktopWindow(mWeakRefShowWithinWindow.Value).Handle)
 		    End If
 		    
 		    Return Nil
@@ -137,7 +152,7 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Function NSSharingServiceName_ToString_ToString(SharingServiceName As NSSharingServiceName) As String
 		  #If TargetMacOS And Target64Bit Then
 		    //https://developer.apple.com/documentation/appkit/nssharingservicename?language=objc
@@ -155,8 +170,8 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function PerformWithItems(psPerformWithNSSharingServiceName As NSSharingServiceName, psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Private Function PerformWithItems(psPerformWithNSSharingServiceName As NSSharingServiceName, psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  mWeakRefShowWithinWindow = Nil
 		  mResultCallbackDelegate = Nil
 		  
@@ -168,32 +183,32 @@ Protected Module modNSSharingService
 		    
 		    'Separators supported: ; and ,
 		    'Split Recipients to get an Array
-		    Dim sRecipients() As String = Split(ReplaceAll(psTo, ";", ","), ",")
-		    For i As Integer = sRecipients.Ubound DownTo 0
-		      sRecipients(i) = Trim(sRecipients(i))
+		    Var sRecipients() As String = psTo.ReplaceAll(";", ",").Split(",")
+		    For i As Integer = sRecipients.LastIndex DownTo 0
+		      sRecipients(i) = sRecipients(i).Trim
 		    Next
 		    
-		    Dim sSubject As String = Trim(psSubject)
-		    Dim sBody As String = Trim(psBody)
+		    Var sSubject As String = psSubject.Trim
+		    Var sBody As String = psBody.Trim
 		    
-		    Dim oAttachments() As FolderItem = poAttachments
+		    Var oAttachments() As FolderItem = poAttachments
 		    
 		    //https://developer.apple.com/documentation/appkit/nssharingservice?language=objc
 		    //Declares: NSSharingService
-		    Dim sPerformWithNSSharingServiceName As String= NSSharingServiceName_ToString_ToString(psPerformWithNSSharingServiceName)
+		    Var sPerformWithNSSharingServiceName As String= NSSharingServiceName_ToString_ToString(psPerformWithNSSharingServiceName)
 		    
 		    Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
-		    Declare Function sharingServiceNamed Lib "AppKit" selector "sharingServiceNamed:" (NSSharingServiceClass As Ptr, serviceName As CFStringRef) As Ptr
+		    Declare Function sharingServiceNamed Lib "AppKit" Selector "sharingServiceNamed:" (NSSharingServiceClass As Ptr, serviceName As CFStringRef) As Ptr
 		    
-		    Declare Sub setRecipients Lib "AppKit" selector "setRecipients:" (NSSharingServiceInstance As Ptr, obj As Ptr)
-		    Declare Sub setSubject Lib "AppKit" selector "setSubject:" (NSSharingServiceInstance As Ptr, subject As CFStringRef)
-		    Declare Function canPerformWithItems Lib "AppKit" selector "canPerformWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr) As Boolean
-		    Declare Sub performWithItems Lib "AppKit" selector "performWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr)
-		    Declare Sub setDelegate Lib "AppKit" selector "setDelegate:" (id As Ptr, ptrToDelegate As Ptr)
+		    Declare Sub setRecipients Lib "AppKit" Selector "setRecipients:" (NSSharingServiceInstance As Ptr, obj As Ptr)
+		    Declare Sub setSubject Lib "AppKit" Selector "setSubject:" (NSSharingServiceInstance As Ptr, subject As CFStringRef)
+		    Declare Function canPerformWithItems Lib "AppKit" Selector "canPerformWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr) As Boolean
+		    Declare Sub performWithItems Lib "AppKit" Selector "performWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr)
+		    Declare Sub setDelegate Lib "AppKit" Selector "setDelegate:" (id As Ptr, ptrToDelegate As Ptr)
 		    
 		    'NSSharingService instance
-		    Dim ptrNSSharingServiceClass As Ptr = NSClassFromString("NSSharingService")
-		    Dim ptrNSSharingServiceInstance As Ptr = sharingServiceNamed(ptrNSSharingServiceClass, sPerformWithNSSharingServiceName)
+		    Var ptrNSSharingServiceClass As Ptr = NSClassFromString("NSSharingService")
+		    Var ptrNSSharingServiceInstance As Ptr = sharingServiceNamed(ptrNSSharingServiceClass, sPerformWithNSSharingServiceName)
 		    
 		    
 		    //Declares: NSMutableArray
@@ -202,27 +217,27 @@ Protected Module modNSSharingService
 		    Declare Sub addObject_String Lib "Foundation" Selector "addObject:"(NSMutableArrayClass As Ptr, anObject As CFStringRef)
 		    Declare Sub addObject_Ptr Lib "Foundation" Selector "addObject:"(NSMutableArrayClass As Ptr, anObject As Ptr)
 		    
-		    Dim ptrMutableArrayClass As Ptr = NSClassFromString("NSMutableArray")
+		    Var ptrMutableArrayClass As Ptr = NSClassFromString("NSMutableArray")
 		    
 		    'Build Recipients Array
-		    Dim ptrRecipients As Ptr = init(alloc(ptrMutableArrayClass))
+		    Var ptrRecipients As Ptr = init(alloc(ptrMutableArrayClass))
 		    For Each sRecipient As String In sRecipients
 		      addObject_String(ptrRecipients, sRecipient)
 		    Next
 		    
 		    'Build Items Array for Content (Body and Attachments)
-		    Dim ptrItems As Ptr = init(alloc(ptrMutableArrayClass))
+		    Var ptrItems As Ptr = init(alloc(ptrMutableArrayClass))
 		    addObject_String(ptrItems, sBody)
 		    
 		    'add Attachments to Items Array
-		    Declare Function fileURLWithPath Lib "Foundation" selector "fileURLWithPath:" ( ptrNSURLClass As Ptr, path As CFStringRef ) As Ptr
+		    Declare Function fileURLWithPath Lib "Foundation" Selector "fileURLWithPath:" ( ptrNSURLClass As Ptr, path As CFStringRef ) As Ptr
 		    For Each oAttachFolderItem As FolderItem In oAttachments
 		      'just existing Files, no Folders
-		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.Directory Then Continue
+		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.IsFolder Then Continue
 		      
 		      'NSURL for Attachment
-		      Dim ptrNSURLClass As Ptr = NSClassFromString("NSURL")
-		      Dim ptrAttachment As Ptr = fileURLWithPath(ptrNSURLClass, oAttachFolderItem.NativePath)
+		      Var ptrNSURLClass As Ptr = NSClassFromString("NSURL")
+		      Var ptrAttachment As Ptr = fileURLWithPath(ptrNSURLClass, oAttachFolderItem.NativePath)
 		      
 		      addObject_Ptr(ptrItems, ptrAttachment)
 		    Next
@@ -244,7 +259,7 @@ Protected Module modNSSharingService
 		      performWithItems(ptrNSSharingServiceInstance, ptrItems)
 		      Return True
 		    Else
-		      Dim sError As String = "NSSharingService can't perform '" + sPerformWithNSSharingServiceName + "' with the assigned items."
+		      Var sError As String = "NSSharingService can't perform '" + sPerformWithNSSharingServiceName + "' with the assigned items."
 		      System.DebugLog sError
 		      Break
 		      
@@ -257,12 +272,12 @@ Protected Module modNSSharingService
 		End Function
 	#tag EndMethod
 
-	#tag DelegateDeclaration, Flags = &h21
+	#tag DelegateDeclaration, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Delegate Sub ResultCallbackDelegate(pbSuccess As Boolean, piErrorCode As Integer, psErrorMessage As String)
 	#tag EndDelegateDeclaration
 
-	#tag Method, Flags = &h0
-		Function SendViaAirDrop(poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+		Function SendViaAirDrop(poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -279,26 +294,26 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private mResultCallbackDelegate As ResultCallbackDelegate
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private mWeakRefShowWithinWindow As WeakRef
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
+	#tag Property, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private ptrDelegateClass As Ptr
 	#tag EndProperty
 
 
-	#tag Enum, Name = NSSharingContentScope, Type = Int32, Flags = &h21
+	#tag Enum, Name = NSSharingContentScope, Type = Int32, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Item=0
 		  Partial=1
 		Full=2
 	#tag EndEnum
 
-	#tag Enum, Name = NSSharingServiceName, Type = Integer, Flags = &h21
+	#tag Enum, Name = NSSharingServiceName, Type = Integer, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		ComposeEmail=1
 		  ComposeMessage=2
 		SendViaAirDrop=3
@@ -310,7 +325,9 @@ Protected Module modNSSharingService
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -318,12 +335,15 @@ Protected Module modNSSharingService
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -331,6 +351,7 @@ Protected Module modNSSharingService
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -338,6 +359,7 @@ Protected Module modNSSharingService
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module

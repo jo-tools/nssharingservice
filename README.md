@@ -25,8 +25,8 @@ Example application - SharingService: **E-Mail**
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
 
 The Desktop application Xojo example project ```NSSharingService.xojo_project``` is using:
-- Xojo 2018r4
-- API 1
+- Xojo 2023r4
+- API 2
 
 ### How to use in your own Xojo project?
 1. copy the Module ```modNSSharingService``` to your project.
@@ -36,8 +36,8 @@ The Desktop application Xojo example project ```NSSharingService.xojo_project```
    3. ```modNSSharingService.ComposeEmail()```
 
 Note:  
-These methods return ```true``` if the sharing service can be invoked, ```false``` if the service is not available.  
-The Sharing Service will run asynchrously *(e.g. when not called to show modally within a window)*. That's why you can pass a ```ResultCallbackDelegate```, which will be invoked and reported back with the result later (e.g.: successfully shared, cancelled by user, ...). 
+- These methods return ```true``` if the sharing service can be invoked, ```false``` if the service is not available.
+- The Sharing Service will run asynchrously *(e.g. when not called to show modally within a window)*. That's why you can pass a ```ResultCallbackDelegate```, which will be invoked and reported back with the result later (e.g.: successfully shared, cancelled by user, ...). 
 
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).

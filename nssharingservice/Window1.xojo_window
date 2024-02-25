@@ -1,39 +1,35 @@
-#tag Window
-Begin Window Window1
-   BackColor       =   &cFFFFFF00
+#tag DesktopWindow
+Begin DesktopWindow Window1
    Backdrop        =   0
-   CloseButton     =   True
-   Compatibility   =   ""
+   BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   Frame           =   0
+   DefaultLocation =   0
    FullScreen      =   False
-   FullScreenButton=   False
-   HasBackColor    =   False
+   HasBackgroundColor=   False
+   HasCloseButton  =   True
+   HasFullScreenButton=   False
+   HasMaximizeButton=   True
+   HasMinimizeButton=   True
    Height          =   445
    ImplicitInstance=   True
-   LiveResize      =   True
    MacProcID       =   0
-   MaxHeight       =   32000
-   MaximizeButton  =   True
-   MaxWidth        =   32000
+   MaximumHeight   =   32000
+   MaximumWidth    =   32000
    MenuBar         =   674236415
    MenuBarVisible  =   True
-   MinHeight       =   445
-   MinimizeButton  =   True
-   MinWidth        =   600
-   Placement       =   0
+   MinimumHeight   =   445
+   MinimumWidth    =   600
    Resizeable      =   True
    Title           =   "NSSharingService"
+   Type            =   0
    Visible         =   True
    Width           =   600
-   Begin Canvas cnvAppIcon
+   Begin DesktopCanvas cnvAppIcon
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   64
       HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
       Index           =   -2147483648
@@ -54,18 +50,16 @@ Begin Window Window1
       Visible         =   True
       Width           =   64
    End
-   Begin Label labAppName
+   Begin DesktopLabel labAppName
       AutoDeactivate  =   True
       Bold            =   True
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   140
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -78,7 +72,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "NSSharingService"
-      TextAlign       =   1
+      TextAlign       =   0
       TextColor       =   &c0072D800
       TextFont        =   "System"
       TextSize        =   0.0
@@ -87,13 +81,11 @@ Begin Window Window1
       Transparent     =   True
       Underline       =   True
       Visible         =   True
-      Width           =   200
+      Width           =   219
    End
-   Begin Label labThanks
+   Begin DesktopLabel labThanks
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
@@ -113,7 +105,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlign       =   2
+      TextAlign       =   3
       TextColor       =   &c66666600
       TextFont        =   "SmallSystem"
       TextSize        =   0.0
@@ -124,18 +116,16 @@ Begin Window Window1
       Visible         =   True
       Width           =   209
    End
-   Begin Label labAppVersion
+   Begin DesktopLabel labAppVersion
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   140
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -148,7 +138,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlign       =   1
+      TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
@@ -157,13 +147,11 @@ Begin Window Window1
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   219
    End
-   Begin Label labContact
+   Begin DesktopLabel labContact
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "xojo@jo-tools.ch"
@@ -183,7 +171,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlign       =   1
+      TextAlign       =   2
       TextColor       =   &c0072CE00
       TextFont        =   "System"
       TextSize        =   0.0
@@ -194,14 +182,12 @@ Begin Window Window1
       Visible         =   True
       Width           =   70
    End
-   Begin Canvas cnvPayPal
+   Begin DesktopCanvas cnvPayPal
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   30
       HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
@@ -222,7 +208,8 @@ Begin Window Window1
       Visible         =   True
       Width           =   106
    End
-   Begin Separator Separator2
+   Begin DesktopSeparator Separator2
+      AllowTabStop    =   True
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   3
@@ -238,17 +225,14 @@ Begin Window Window1
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   100
       Transparent     =   True
       Visible         =   True
       Width           =   600
    End
-   Begin Label labTo
+   Begin DesktopLabel labTo
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   "Note: Recipient are being Split by ; and ,"
@@ -279,7 +263,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   120
    End
-   Begin TextField edtTo
+   Begin DesktopTextField edtTo
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -288,8 +272,6 @@ Begin Window Window1
       Bold            =   False
       Border          =   True
       CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   22
@@ -322,11 +304,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   440
    End
-   Begin Label labSubject
+   Begin DesktopLabel labSubject
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   ""
@@ -357,7 +337,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   120
    End
-   Begin TextField edtSubject
+   Begin DesktopTextField edtSubject
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -366,8 +346,6 @@ Begin Window Window1
       Bold            =   False
       Border          =   True
       CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   22
@@ -400,11 +378,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   440
    End
-   Begin Label labContent
+   Begin DesktopLabel labContent
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   22
       HelpTag         =   ""
@@ -435,7 +411,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   120
    End
-   Begin TextArea edtContent
+   Begin DesktopTextArea edtContent
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -443,8 +419,6 @@ Begin Window Window1
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Format          =   ""
       Height          =   127
@@ -479,15 +453,14 @@ Begin Window Window1
       Top             =   185
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   440
    End
-   Begin Label labAttachments
+   Begin DesktopLabel labAttachments
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -518,10 +491,10 @@ Begin Window Window1
       Visible         =   True
       Width           =   120
    End
-   Begin PushButton btnAttachment1
+   Begin DesktopButton btnAttachment1
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Add"
       Default         =   False
@@ -550,11 +523,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   55
    End
-   Begin Label labAttachment1
+   Begin DesktopLabel labAttachment1
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -585,10 +556,10 @@ Begin Window Window1
       Visible         =   True
       Width           =   380
    End
-   Begin PushButton btnAttachment2
+   Begin DesktopButton btnAttachment2
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Add"
       Default         =   False
@@ -617,11 +588,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   55
    End
-   Begin Label labAttachment2
+   Begin DesktopLabel labAttachment2
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -652,7 +621,8 @@ Begin Window Window1
       Visible         =   True
       Width           =   380
    End
-   Begin Separator sepSharingService
+   Begin DesktopSeparator sepSharingService
+      AllowTabStop    =   True
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   4
@@ -668,17 +638,14 @@ Begin Window Window1
       Scope           =   2
       TabIndex        =   18
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   389
       Transparent     =   False
       Visible         =   True
       Width           =   600
    End
-   Begin Label labSharingService
+   Begin DesktopLabel labSharingService
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -709,11 +676,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   120
    End
-   Begin PopupMenu lstSharingService
+   Begin DesktopPopupMenu lstSharingService
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -741,10 +706,10 @@ Begin Window Window1
       Visible         =   True
       Width           =   220
    End
-   Begin PushButton btnSharingService
+   Begin DesktopButton btnSharingService
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Compose E-Mail"
       Default         =   True
@@ -774,12 +739,18 @@ Begin Window Window1
       Width           =   160
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Self.Title = "NSSharingService"
+		  
+		  #If TargetMacOS Then
+		    Var rect As Xojo.Rect = Self.Bounds
+		    rect.Top = DesktopDisplay.DisplayAt(0).AvailableTop
+		    Self.Bounds = rect
+		  #EndIf
 		  
 		End Sub
 	#tag EndEvent
@@ -788,45 +759,80 @@ End
 	#tag Method, Flags = &h21
 		Private Sub SharingServiceResult(pbSuccess As Boolean, piErrorCode As Integer, psErrorMessage As String)
 		  If pbSuccess Then
-		    MsgBox "NSSharingService has successfully shared the item(s)."
+		    ShowMessageBox_Info "NSSharingService has successfully shared the item(s)."
 		    Return
 		  End If
 		  
 		  If (psErrorMessage = "") Then psErrorMessage = "NSSharingService failed to share the item(s)."
-		  If (piErrorCode <> 0) Then psErrorMessage = psErrorMessage + EndOfLine + EndOfLine + "ErrorCode: " + Str(piErrorCode)
-		  MsgBox psErrorMessage
+		  
+		  Var sErrorCodeInfo As String = ""
+		  If (piErrorCode <> 0) Then sErrorCodeInfo = "ErrorCode: " + Str(piErrorCode)
+		  ShowMessageBox_Error psErrorMessage, sErrorCodeInfo
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox(psText As String, psExplanation As String, iconType As MessageDialog.IconTypes)
+		  Var d As New MessageDialog
+		  d.IconType = iconType
+		  d.ActionButton.Caption = "OK"
+		  d.CancelButton.Visible = False
+		  d.AlternateActionButton.Visible = False
+		  d.Message = psText
+		  d.Explanation = psExplanation
+		  Call d.ShowModal(Self)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Error(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Stop)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Info(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Note)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ShowMessageBox_Warning(psText As String, psExplanation As String = "")
+		  ShowMessageBox(psText, psExplanation, MessageDialog.IconTypes.Caution)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub ValidateContent()
-		  Dim bEmail As Boolean = (lstSharingService.ListIndex = 0)
-		  Dim bMessages As Boolean = (lstSharingService.ListIndex = 1)
-		  Dim bAirdrop As Boolean = (lstSharingService.ListIndex = 2)
+		  Var bEmail As Boolean = (lstSharingService.SelectedRowIndex = 0)
+		  Var bMessages As Boolean = (lstSharingService.SelectedRowIndex = 1)
+		  Var bAirdrop As Boolean = (lstSharingService.SelectedRowIndex = 2)
 		  
-		  Dim bAllOK As Boolean = True
+		  Var bAllOK As Boolean = True
 		  
 		  If bEmail Then
 		    'Validation: E-Mail
 		    '******************
 		    'just a very basic validation: we want some content
-		    If (Trim(edtContent.Text) = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
+		    If (edtContent.Text.Trim = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
 		    'we want a subject
-		    If (Trim(edtSubject.Text) = "") Then bAllOK = False
+		    If (edtSubject.Text.Trim = "") Then bAllOK = False
 		    'and we need a To: this could be much better and check for valid email address(es)
-		    If (Trim(edtTo.Text) = "") Then bAllOK = False
-		    
-		    
+		    If (edtTo.Text.Trim = "") Then bAllOK = False
 		  End If
 		  
 		  If bMessages Then
 		    'Validation: Messages
 		    '********************
 		    'just a very basic validation: we want some content
-		    If (Trim(edtContent.Text) = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
+		    If (edtContent.Text.Trim = "") And (eoAttachment1 = Nil) And (eoAttachment2 = Nil) Then bAllOK = False
 		    'and we need a To: this could be much better and check for valid email address(es)
-		    If (Trim(edtTo.Text) = "") Then bAllOK = False
+		    If (edtTo.Text.Trim = "") Then bAllOK = False
 		  End If
 		  
 		  If bAirdrop Then
@@ -837,21 +843,21 @@ End
 		  End If
 		  
 		  'Show/Hide Controls
-		  Dim iTop As Integer = edtTo.Top
-		  edtTo.Visible = bEmail or bMessages
+		  Var iTop As Integer = edtTo.Top
+		  edtTo.Visible = bEmail Or bMessages
 		  labTo.Visible = edtTo.Visible
-		  if edtTo.Visible then iTop = iTop + 35
+		  If edtTo.Visible Then iTop = iTop + 35
 		  
 		  edtSubject.Top = iTop
 		  labSubject.Top = iTop
 		  edtSubject.Visible = bEmail
 		  labSubject.Visible = edtSubject.Visible
-		  if edtSubject.Visible then iTop = iTop + 35
+		  If edtSubject.Visible Then iTop = iTop + 35
 		  
 		  edtContent.Top = iTop
 		  edtContent.Height = btnAttachment1.Top - 13 - iTop
 		  labContent.Top = iTop
-		  edtContent.Visible = bEmail or bMessages
+		  edtContent.Visible = bEmail Or bMessages
 		  labContent.Visible = edtContent.Visible
 		  
 		  'edtTo.ReadOnly = (Not (bEmail Or bMessages))
@@ -867,7 +873,7 @@ End
 		  'labContent.Enabled = edtContent.Enabled
 		  
 		  'Dis/Enable Button
-		  btnSharingService.Caption = NthField(lstSharingService.Text, " ", 1)
+		  btnSharingService.Caption = lstSharingService.SelectedRowText.NthField(" ", 1)
 		  If (btnSharingService.Enabled <> bAllOK) Then btnSharingService.Enabled = bAllOK
 		End Sub
 	#tag EndMethod
@@ -886,143 +892,157 @@ End
 
 #tag Events cnvAppIcon
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
+		  #Pragma unused areas
+		  
 		  g.DrawPicture(AppIcon_64, 0, 0)
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/nssharingservice/")
-		  end if
+		Sub MouseUp(x As Integer, y As Integer)
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
+		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  return true
+		Function MouseDown(x As Integer, y As Integer) As Boolean
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
-		Sub Open()
-		  me.Text = "NSSharingService"
-		  me.TextSize = 18
-		  me.Bold = true
+		Sub Opening()
+		  Me.Text = "NSSharingService"
+		  Me.FontSize = 18
+		  Me.Bold = True
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/nssharingservice/")
-		  end if
+		Sub MouseUp(x As Integer, y As Integer)
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
+		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  return true
+		Function MouseDown(x As Integer, y As Integer) As Boolean
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labAppVersion
 	#tag Event
-		Sub Open()
-		  if (App.ShortVersion <> "") then
-		    me.Text = App.ShortVersion
-		    return
-		  end if
+		Sub Opening()
+		  If (App.Version <> "") Then
+		    Me.Text = App.Version
+		    Return
+		  End If
 		  
-		  me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
+		  Me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labContact
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  return true
+		Function MouseDown(x As Integer, y As Integer) As Boolean
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("mailto:xojo@jo-tools.ch")
-		  end if
+		Sub MouseUp(x As Integer, y As Integer)
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
+		    System.GotoURL("mailto:xojo@jo-tools.ch")
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvPayPal
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  g.ForeColor = &cFFFFFF
-		  #if (XojoVersion >= 2018.03) then
-		    if IsDarkMode then g.ForeColor = &cD0D0D0
-		  #endif
-		  g.FillRect(0, 0, g.Width, g.Height)
-		  g.ForeColor = &c909090
-		  g.DrawRect(0, 0, g.Width, g.Height)
+		Sub Paint(g As Graphics, areas() As Rect)
+		  #Pragma unused areas
+		  
+		  g.DrawingColor = &cFFFFFF
+		  If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &c909090
+		  g.DrawRectangle(0, 0, g.Width, g.Height)
 		  g.DrawPicture(PayPal, 3, 2, 100, 26, 0, 0, PayPal.Width, PayPal.Height)
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://paypal.me/jotools")
-		  end if
+		Sub MouseUp(x As Integer, y As Integer)
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
+		    System.GotoURL("https://paypal.me/jotools")
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  return true
+		Function MouseDown(x As Integer, y As Integer) As Boolean
+		  #Pragma unused x
+		  #Pragma unused y
+		  
+		  Return True
 		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events edtTo
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  #If DebugBuild Then
 		    Me.Text = "test.email.1@test.com, test.email.2@test.com"
 		  #EndIf
@@ -1030,28 +1050,28 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TextChange()
-		  self.ValidateContent()
+		Sub TextChanged()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events edtSubject
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  #If DebugBuild Then
 		    Me.Text = "Test Subject"
 		  #EndIf
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TextChange()
-		  self.ValidateContent()
+		Sub TextChanged()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events edtContent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  #If DebugBuild Then
 		    Me.Text = "Some Body Content" + EndOfLine + _
 		    "" + EndOfLine + _
@@ -1063,24 +1083,24 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TextChange()
-		  self.ValidateContent()
+		Sub TextChanged()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnAttachment1
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If (eoAttachment1 = Nil) Then
 		    'Add
-		    Dim f As FolderItem
-		    Dim dlg As New OpenDialog
-		    dlg.InitialDirectory = SpecialFolder.Desktop
+		    Var f As FolderItem
+		    Var dlg As New OpenFileDialog
+		    dlg.InitialFolder = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
-		    f = dlg.ShowModalWithin(Self)
+		    f = dlg.ShowModal(Self)
 		    
-		    If (f <> Nil) And (f.Directory = False) And f.Exists Then
+		    If (f <> Nil) And (f.IsFolder = False) And f.Exists Then
 		      eoAttachment1 = f
 		      labAttachment1.Text = f.DisplayName
 		      Me.Caption = "Del"
@@ -1099,17 +1119,17 @@ End
 #tag EndEvents
 #tag Events btnAttachment2
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If (eoAttachment2 = Nil) Then
 		    'Add
-		    Dim f As FolderItem
-		    Dim dlg As New OpenDialog
-		    dlg.InitialDirectory = SpecialFolder.Desktop
+		    Var f As FolderItem
+		    Var dlg As New OpenFileDialog
+		    dlg.InitialFolder = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
-		    f = dlg.ShowModalWithin(Self)
+		    f = dlg.ShowModal(Self)
 		    
-		    If (f <> Nil) And (f.Directory = False) And f.Exists Then
+		    If (f <> Nil) And (f.IsFolder = False) And f.Exists Then
 		      eoAttachment2 = f
 		      labAttachment2.Text = f.DisplayName
 		      Me.Caption = "Del"
@@ -1128,140 +1148,111 @@ End
 #tag EndEvents
 #tag Events lstSharingService
 	#tag Event
-		Sub Open()
-		  me.DeleteAllRows
+		Sub Opening()
+		  Me.RemoveAllRows
 		  
-		  me.AddRow("Compose Email")
-		  me.AddRow("Compose Message")
-		  me.AddRow("Send via AirDrop")
+		  Me.AddRow("Compose Email")
+		  Me.AddRow("Compose Message")
+		  Me.AddRow("Send via AirDrop")
 		  
-		  me.ListIndex = 0
+		  Me.SelectedRowIndex = 0
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Change()
-		  self.ValidateContent()
+		Sub SelectionChanged(item As DesktopMenuItem)
+		  #Pragma unused item
+		  
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnSharingService
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  'Separators supported: ; and ,
 		  'Split Recipients to get an Array
-		  Dim sRecipients() As String = Split(ReplaceAll(edtTo.Text, ";", ","), ",")
-		  For i As Integer = sRecipients.Ubound DownTo 0
-		    sRecipients(i) = Trim(sRecipients(i))
+		  Var sRecipients() As String = edtTo.Text.ReplaceAll(";", ",").Split(",")
+		  For i As Integer = sRecipients.LastIndex DownTo 0
+		    sRecipients(i) = sRecipients(i).Trim
 		  Next
 		  
-		  Dim oAttachments() As FolderItem
-		  If (eoAttachment1 <> Nil) And (Not eoAttachment1.Directory) And eoAttachment1.Exists Then oAttachments.Append(eoAttachment1)
-		  If (eoAttachment2 <> Nil) And (Not eoAttachment2.Directory) And eoAttachment2.Exists Then oAttachments.Append(eoAttachment2)
+		  Var oAttachments() As FolderItem
+		  If (eoAttachment1 <> Nil) And (Not eoAttachment1.IsFolder) And eoAttachment1.Exists Then oAttachments.Add(eoAttachment1)
+		  If (eoAttachment2 <> Nil) And (Not eoAttachment2.IsFolder) And eoAttachment2.Exists Then oAttachments.Add(eoAttachment2)
 		  
 		  #If TargetMacOS And Target64Bit Then
 		    'let NSSharingService perform...
-		    if (lstSharingService.ListIndex = 0) then
-		      if modNSSharingService.ComposeEmail(edtTo.Text, edtSubject.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
-		        'will perform, wait for callback in SharingServiceResult
-		      else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.ComposeEmail."
-		      end if
-		    elseif (lstSharingService.ListIndex = 1) then
-		      if modNSSharingService.ComposeMessage(edtTo.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
-		        'will perform, wait for callback in SharingServiceResult
-		      else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
-		      end if
-		    elseif (lstSharingService.ListIndex = 2) then
-		      If (oAttachments.Ubound < 0) Then
-		        MsgBox "No Attachment(s) selected."
-		        Return
-		      End If
-		      If modNSSharingService.SendViaAirDrop(oAttachments, self, WeakAddressOf self.SharingServiceResult) Then
+		    If (lstSharingService.SelectedRowIndex = 0) Then
+		      If modNSSharingService.ComposeEmail(edtTo.Text, edtSubject.Text, edtContent.Text, oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
 		        'will perform, wait for callback in SharingServiceResult
 		      Else
-		        MsgBox "Oops, NSSharingService can't perform modNSSharingService.SendViaAirDrop."
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeEmail."
 		      End If
-		    else
-		      MsgBox "Oops, unknown Sharing Service."
-		    end if
+		    ElseIf (lstSharingService.SelectedRowIndex = 1) Then
+		      If modNSSharingService.ComposeMessage(edtTo.Text, edtContent.Text, oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
+		        'will perform, wait for callback in SharingServiceResult
+		      Else
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
+		      End If
+		    ElseIf (lstSharingService.SelectedRowIndex = 2) Then
+		      If (oAttachments.LastIndex < 0) Then
+		        Self.ShowMessageBox_Warning "No Attachment(s) selected."
+		        Return
+		      End If
+		      If modNSSharingService.SendViaAirDrop(oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
+		        'will perform, wait for callback in SharingServiceResult
+		      Else
+		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.SendViaAirDrop."
+		      End If
+		    Else
+		      Self.ShowMessageBox_Error "Oops, unknown Sharing Service."
+		    End If
 		    
 		  #Else
-		    MsgBox "This example is for macOS 64Bit only."
+		    Self.ShowMessageBox_Warning "This example is for macOS 64Bit only."
 		  #EndIf
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Super"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Width"
-		Visible=true
-		Group="Size"
-		InitialValue="600"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Size"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
+		Name="MinimumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinHeight"
+		Name="MinimumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="MaximumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="MaximumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
 		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1278,78 +1269,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Title"
-		Visible=true
-		Group="Frame"
-		InitialValue="Untitled"
-		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
+		Name="HasCloseButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Resizeable"
+		Name="HasMaximizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaximizeButton"
+		Name="HasMinimizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Frame"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
+		Name="HasFullScreenButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Composite"
-		Group="OS X (Carbon)"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MacProcID"
-		Group="OS X (Carbon)"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
+		Name="DefaultLocation"
 		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1360,54 +1316,132 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="600"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Visible=true
+		Group="Frame"
+		InitialValue="Untitled"
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Resizeable"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Visible"
 		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="FullScreen"
+		Visible=false
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="BackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
 		Visible=true
 		Group="Background"
+		InitialValue=""
 		Type="Picture"
-		EditorType="Picture"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBar"
 		Visible=true
 		Group="Menus"
+		InitialValue=""
 		Type="MenuBar"
-		EditorType="MenuBar"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBarVisible"
@@ -1415,6 +1449,6 @@ End
 		Group="Deprecated"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
