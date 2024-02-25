@@ -1,6 +1,6 @@
 #tag Module
 Protected Module modNSSharingService
-	#tag CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag CompatibilityFlags = ( TargetConsole and ( Target32Bit or Target64Bit ) ) or ( TargetDesktop and ( Target32Bit or Target64Bit ) )
 	#tag Method, Flags = &h21
 		Private Function BuildNSSharingServiceDelegateClass() As Ptr
 		  #If TargetMacOS And Target64Bit Then
@@ -41,7 +41,7 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ComposeEmail(psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+		Function ComposeEmail(psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -58,7 +58,7 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ComposeMessage(psTo As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+		Function ComposeMessage(psTo As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -156,7 +156,7 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function PerformWithItems(psPerformWithNSSharingServiceName As NSSharingServiceName, psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+		Private Function PerformWithItems(psPerformWithNSSharingServiceName As NSSharingServiceName, psTo As String, psSubject As String, psBody As String, poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  mWeakRefShowWithinWindow = Nil
 		  mResultCallbackDelegate = Nil
 		  
@@ -262,7 +262,7 @@ Protected Module modNSSharingService
 	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h0
-		Function SendViaAirDrop(poAttachments() As FolderItem, poShowWithin As Window, poResultCallback As ResultCallbackDelegate) As Boolean
+		Function SendViaAirDrop(poAttachments() As FolderItem, poShowWithin As DesktopWindow, poResultCallback As ResultCallbackDelegate) As Boolean
 		  #If TargetMacOS And Target64Bit Then
 		    'This will perform the requested Sharing Service:
 		    '- items from the parameters
@@ -310,7 +310,9 @@ Protected Module modNSSharingService
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -318,12 +320,15 @@ Protected Module modNSSharingService
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -331,6 +336,7 @@ Protected Module modNSSharingService
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -338,6 +344,7 @@ Protected Module modNSSharingService
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module

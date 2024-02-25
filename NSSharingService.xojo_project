@@ -1,12 +1,12 @@
 Type=Desktop
 RBProjectVersion=2023.04
-MinIDEVersion=20150400
+MinIDEVersion=20210300
 OrigIDEVersion=00000000
 Folder=resources;resources;&h00000000461DC7FF;&h0000000000000000;false
 Folder=nssharingservice;nssharingservice;&h000000001D69AFFF;&h0000000000000000;false
 Module=modNSSharingService;nssharingservice/modNSSharingService.xojo_code;&h000000001FCD3FFF;&h000000001D69AFFF;false
 Class=App;nssharingservice/App.xojo_code;&h0000000075584FFF;&h000000001D69AFFF;false
-Window=Window1;nssharingservice/Window1.xojo_window;&h000000003EC33FFF;&h000000001D69AFFF;false
+DesktopWindow=Window1;nssharingservice/Window1.xojo_window;&h000000003EC33FFF;&h000000001D69AFFF;false
 MenuBar=MainMenuBar;nssharingservice/MainMenuBar.xojo_menu;&h00000000283007FF;&h000000001D69AFFF;false
 BuildSteps=Build Automation;Build Automation.xojo_code;&h0000000042D7FFFF;&h0000000000000000;false
 MultiImage=PayPal;resources/PayPal.xojo_image;&h000000001D7FE7FF;&h00000000461DC7FF;false
