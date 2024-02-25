@@ -844,20 +844,20 @@ End
 		  
 		  'Show/Hide Controls
 		  Var iTop As Integer = edtTo.Top
-		  edtTo.Visible = bEmail or bMessages
+		  edtTo.Visible = bEmail Or bMessages
 		  labTo.Visible = edtTo.Visible
-		  if edtTo.Visible then iTop = iTop + 35
+		  If edtTo.Visible Then iTop = iTop + 35
 		  
 		  edtSubject.Top = iTop
 		  labSubject.Top = iTop
 		  edtSubject.Visible = bEmail
 		  labSubject.Visible = edtSubject.Visible
-		  if edtSubject.Visible then iTop = iTop + 35
+		  If edtSubject.Visible Then iTop = iTop + 35
 		  
 		  edtContent.Top = iTop
 		  edtContent.Height = btnAttachment1.Top - 13 - iTop
 		  labContent.Top = iTop
-		  edtContent.Visible = bEmail or bMessages
+		  edtContent.Visible = bEmail Or bMessages
 		  labContent.Visible = edtContent.Visible
 		  
 		  'edtTo.ReadOnly = (Not (bEmail Or bMessages))
@@ -900,9 +900,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -915,29 +915,29 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
 		Sub Opening()
-		  me.Text = "NSSharingService"
-		  me.FontSize = 18
-		  me.Bold = true
+		  Me.Text = "NSSharingService"
+		  Me.FontSize = 18
+		  Me.Bold = True
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -950,13 +950,13 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -964,24 +964,24 @@ End
 	#tag Event
 		Sub Opening()
 		  If (App.Version <> "") Then
-		    me.Text = App.Version
-		    return
-		  end if
+		    Me.Text = App.Version
+		    Return
+		  End If
 		  
-		  me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
+		  Me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labContact
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -994,9 +994,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("mailto:xojo@jo-tools.ch")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1015,13 +1015,13 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1051,7 +1051,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub TextChanged()
-		  self.ValidateContent()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1065,7 +1065,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub TextChanged()
-		  self.ValidateContent()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1084,7 +1084,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub TextChanged()
-		  self.ValidateContent()
+		  Self.ValidateContent()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1151,11 +1151,11 @@ End
 		Sub Opening()
 		  Me.RemoveAllRows
 		  
-		  me.AddRow("Compose Email")
-		  me.AddRow("Compose Message")
-		  me.AddRow("Send via AirDrop")
+		  Me.AddRow("Compose Email")
+		  Me.AddRow("Compose Message")
+		  Me.AddRow("Send via AirDrop")
 		  
-		  me.SelectedRowIndex = 0
+		  Me.SelectedRowIndex = 0
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1183,30 +1183,30 @@ End
 		  #If TargetMacOS And Target64Bit Then
 		    'let NSSharingService perform...
 		    If (lstSharingService.SelectedRowIndex = 0) Then
-		      if modNSSharingService.ComposeEmail(edtTo.Text, edtSubject.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
+		      If modNSSharingService.ComposeEmail(edtTo.Text, edtSubject.Text, edtContent.Text, oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
 		        'will perform, wait for callback in SharingServiceResult
-		      else
+		      Else
 		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeEmail."
-		      end if
+		      End If
 		    ElseIf (lstSharingService.SelectedRowIndex = 1) Then
-		      if modNSSharingService.ComposeMessage(edtTo.Text, edtContent.Text, oAttachments, self, WeakAddressOf self.SharingServiceResult) then
+		      If modNSSharingService.ComposeMessage(edtTo.Text, edtContent.Text, oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
 		        'will perform, wait for callback in SharingServiceResult
-		      else
+		      Else
 		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.ComposeMessage."
-		      end if
-		    elseif (lstSharingService.SelectedRowIndex = 2) then
+		      End If
+		    ElseIf (lstSharingService.SelectedRowIndex = 2) Then
 		      If (oAttachments.LastIndex < 0) Then
 		        Self.ShowMessageBox_Warning "No Attachment(s) selected."
 		        Return
 		      End If
-		      If modNSSharingService.SendViaAirDrop(oAttachments, self, WeakAddressOf self.SharingServiceResult) Then
+		      If modNSSharingService.SendViaAirDrop(oAttachments, Self, WeakAddressOf Self.SharingServiceResult) Then
 		        'will perform, wait for callback in SharingServiceResult
 		      Else
 		        Self.ShowMessageBox_Error "Oops, NSSharingService can't perform modNSSharingService.SendViaAirDrop."
 		      End If
-		    else
+		    Else
 		      Self.ShowMessageBox_Error "Oops, unknown Sharing Service."
-		    end if
+		    End If
 		    
 		  #Else
 		    Self.ShowMessageBox_Warning "This example is for macOS 64Bit only."

@@ -12,8 +12,8 @@ Protected Module modNSSharingService
 		    Declare Function class_addProtocol Lib "Foundation" (cls As Ptr, proto As Ptr) As Boolean
 		    Declare Function class_addMethod Lib "Foundation"  (cls As Ptr, name As Ptr, imp As Ptr, types As CString) As Boolean
 		    Declare Function NSSelectorFromString Lib "Foundation" (aSelectorName As CFStringRef) As Ptr
-		    Declare Function alloc Lib "Foundation" selector "alloc" (classRef As Ptr) As Ptr
-		    Declare Function init Lib "Foundation" selector "init" (classRef As Ptr) As Ptr
+		    Declare Function alloc Lib "Foundation" Selector "alloc" (classRef As Ptr) As Ptr
+		    Declare Function init Lib "Foundation" Selector "init" (classRef As Ptr) As Ptr
 		    
 		    'create the NSSharingServiceDelegateHandler
 		    Var delegateClass As Ptr = objc_allocateClassPair(NSClassFromString("NSObject"), "NSSharingServiceDelegateHandler", 0)
@@ -85,9 +85,9 @@ Protected Module modNSSharingService
 		    //https://developer.apple.com/documentation/appkit/nssharingservicedelegate/1402710-sharingservice?language=objc
 		    //- (void)sharingService:(NSSharingService *)sharingService didFailToShareItems:(NSArray *)items error:(NSError *)error;
 		    
-		    Declare Function code Lib "Foundation" selector "code" ( ptrNSError As Ptr ) As Integer
+		    Declare Function code Lib "Foundation" Selector "code" ( ptrNSError As Ptr ) As Integer
 		    'Declare Function domain Lib "Foundation" selector "domain" ( ptrNSError As Ptr ) As CFStringRef
-		    Declare Function localizedDescription Lib "Foundation" selector "localizedDescription" ( ptrNSError As Ptr ) As CFStringRef
+		    Declare Function localizedDescription Lib "Foundation" Selector "localizedDescription" ( ptrNSError As Ptr ) As CFStringRef
 		    
 		    'get information out of the NSError
 		    Var iError As Integer = code(error)
@@ -107,7 +107,7 @@ Protected Module modNSSharingService
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr)
-		  #pragma unused id
+		  #Pragma unused id
 		  #Pragma unused selectorPtr
 		  #Pragma unused sharingServiceInstance
 		  #Pragma unused items
@@ -123,7 +123,7 @@ Protected Module modNSSharingService
 		    
 		    mResultCallbackDelegate = Nil
 		    mWeakRefShowWithinWindow = Nil
-		  #endif
+		  #EndIf
 		End Sub
 	#tag EndMethod
 
@@ -198,13 +198,13 @@ Protected Module modNSSharingService
 		    Var sPerformWithNSSharingServiceName As String= NSSharingServiceName_ToString_ToString(psPerformWithNSSharingServiceName)
 		    
 		    Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
-		    Declare Function sharingServiceNamed Lib "AppKit" selector "sharingServiceNamed:" (NSSharingServiceClass As Ptr, serviceName As CFStringRef) As Ptr
+		    Declare Function sharingServiceNamed Lib "AppKit" Selector "sharingServiceNamed:" (NSSharingServiceClass As Ptr, serviceName As CFStringRef) As Ptr
 		    
-		    Declare Sub setRecipients Lib "AppKit" selector "setRecipients:" (NSSharingServiceInstance As Ptr, obj As Ptr)
-		    Declare Sub setSubject Lib "AppKit" selector "setSubject:" (NSSharingServiceInstance As Ptr, subject As CFStringRef)
-		    Declare Function canPerformWithItems Lib "AppKit" selector "canPerformWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr) As Boolean
-		    Declare Sub performWithItems Lib "AppKit" selector "performWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr)
-		    Declare Sub setDelegate Lib "AppKit" selector "setDelegate:" (id As Ptr, ptrToDelegate As Ptr)
+		    Declare Sub setRecipients Lib "AppKit" Selector "setRecipients:" (NSSharingServiceInstance As Ptr, obj As Ptr)
+		    Declare Sub setSubject Lib "AppKit" Selector "setSubject:" (NSSharingServiceInstance As Ptr, subject As CFStringRef)
+		    Declare Function canPerformWithItems Lib "AppKit" Selector "canPerformWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr) As Boolean
+		    Declare Sub performWithItems Lib "AppKit" Selector "performWithItems:" (NSSharingServiceInstance As Ptr, obj As Ptr)
+		    Declare Sub setDelegate Lib "AppKit" Selector "setDelegate:" (id As Ptr, ptrToDelegate As Ptr)
 		    
 		    'NSSharingService instance
 		    Var ptrNSSharingServiceClass As Ptr = NSClassFromString("NSSharingService")
@@ -230,7 +230,7 @@ Protected Module modNSSharingService
 		    addObject_String(ptrItems, sBody)
 		    
 		    'add Attachments to Items Array
-		    Declare Function fileURLWithPath Lib "Foundation" selector "fileURLWithPath:" ( ptrNSURLClass As Ptr, path As CFStringRef ) As Ptr
+		    Declare Function fileURLWithPath Lib "Foundation" Selector "fileURLWithPath:" ( ptrNSURLClass As Ptr, path As CFStringRef ) As Ptr
 		    For Each oAttachFolderItem As FolderItem In oAttachments
 		      'just existing Files, no Folders
 		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.IsFolder Then Continue
