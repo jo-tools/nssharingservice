@@ -815,11 +815,11 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ValidateContent()
-		  Dim bEmail As Boolean = (lstSharingService.SelectedRowIndex = 0)
-		  Dim bMessages As Boolean = (lstSharingService.SelectedRowIndex = 1)
-		  Dim bAirdrop As Boolean = (lstSharingService.SelectedRowIndex = 2)
+		  Var bEmail As Boolean = (lstSharingService.SelectedRowIndex = 0)
+		  Var bMessages As Boolean = (lstSharingService.SelectedRowIndex = 1)
+		  Var bAirdrop As Boolean = (lstSharingService.SelectedRowIndex = 2)
 		  
-		  Dim bAllOK As Boolean = True
+		  Var bAllOK As Boolean = True
 		  
 		  If bEmail Then
 		    'Validation: E-Mail
@@ -849,7 +849,7 @@ End
 		  End If
 		  
 		  'Show/Hide Controls
-		  Dim iTop As Integer = edtTo.Top
+		  Var iTop As Integer = edtTo.Top
 		  edtTo.Visible = bEmail or bMessages
 		  labTo.Visible = edtTo.Visible
 		  if edtTo.Visible then iTop = iTop + 35
@@ -1085,8 +1085,8 @@ End
 		Sub Pressed()
 		  If (eoAttachment1 = Nil) Then
 		    'Add
-		    Dim f As FolderItem
-		    Dim dlg As New OpenFileDialog
+		    Var f As FolderItem
+		    Var dlg As New OpenFileDialog
 		    dlg.InitialDirectory = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
@@ -1114,8 +1114,8 @@ End
 		Sub Pressed()
 		  If (eoAttachment2 = Nil) Then
 		    'Add
-		    Dim f As FolderItem
-		    Dim dlg As New OpenDialog
+		    Var f As FolderItem
+		    Var dlg As New OpenDialog
 		    dlg.InitialDirectory = SpecialFolder.Desktop
 		    dlg.Title = "Select an Attachment"
 		    dlg.Filter = "????"
@@ -1161,12 +1161,12 @@ End
 		Sub Pressed()
 		  'Separators supported: ; and ,
 		  'Split Recipients to get an Array
-		  Dim sRecipients() As String = Split(ReplaceAll(edtTo.Text, ";", ","), ",")
+		  Var sRecipients() As String = Split(ReplaceAll(edtTo.Text, ";", ","), ",")
 		  For i As Integer = sRecipients.Ubound DownTo 0
 		    sRecipients(i) = Trim(sRecipients(i))
 		  Next
 		  
-		  Dim oAttachments() As FolderItem
+		  Var oAttachments() As FolderItem
 		  If (eoAttachment1 <> Nil) And (Not eoAttachment1.Directory) And eoAttachment1.Exists Then oAttachments.Append(eoAttachment1)
 		  If (eoAttachment2 <> Nil) And (Not eoAttachment2.Directory) And eoAttachment2.Exists Then oAttachments.Append(eoAttachment2)
 		  

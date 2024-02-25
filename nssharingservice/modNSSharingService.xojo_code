@@ -16,7 +16,7 @@ Protected Module modNSSharingService
 		    Declare Function init Lib "Foundation" selector "init" (classRef As Ptr) As Ptr
 		    
 		    'create the NSSharingServiceDelegateHandler
-		    Dim delegateClass As Ptr = objc_allocateClassPair(NSClassFromString("NSObject"), "NSSharingServiceDelegateHandler", 0)
+		    Var delegateClass As Ptr = objc_allocateClassPair(NSClassFromString("NSObject"), "NSSharingServiceDelegateHandler", 0)
 		    If (delegateClass = Nil) Then
 		      'Maybe it already exists. Let's check:
 		      delegateClass = objc_lookUpClass("NSSharingServiceDelegateHandler")
@@ -25,7 +25,7 @@ Protected Module modNSSharingService
 		      objc_registerClassPair(delegateClass)
 		      
 		      'and add the protocol: NSSharingServiceDelegate
-		      Dim delegateProtocol As Ptr = objc_getProtocol("NSSharingServiceDelegate")  //get protocol type
+		      Var delegateProtocol As Ptr = objc_getProtocol("NSSharingServiceDelegate")  //get protocol type
 		      If (Not class_addProtocol(delegateClass, delegateProtocol)) Then Break //add protocol to class
 		    End If
 		    If (delegateClass = Nil) Then Break
@@ -85,9 +85,9 @@ Protected Module modNSSharingService
 		    Declare Function localizedDescription Lib "Foundation" selector "localizedDescription" ( ptrNSError As Ptr ) As CFStringRef
 		    
 		    'get information out of the NSError
-		    Dim iError As Integer = code(error)
-		    'Dim sDomain As String = domain(error)
-		    Dim sError As String = localizedDescription(error)
+		    Var iError As Integer = code(error)
+		    'Var sDomain As String = domain(error)
+		    Var sError As String = localizedDescription(error)
 		    
 		    'invoke the callback with the result
 		    If (mResultCallbackDelegate <> Nil) Then
@@ -124,7 +124,7 @@ Protected Module modNSSharingService
 		    //- (NSWindow *)sharingService:(NSSharingService *)sharingService sourceWindowForShareItems:(NSArray *)items sharingContentScope:(NSSharingContentScope *)sharingContentScope;
 		    
 		    'configure that we're sharing item(s), and not partial or full content
-		    Dim mbSharingContentScope As MemoryBlock = sharingContentScope
+		    Var mbSharingContentScope As MemoryBlock = sharingContentScope
 		    mbSharingContentScope.Int32Value(0) = CType(NSSharingContentScope.Item, Int32)
 		    
 		    'return the Window, so that NSSharingService will show modally on it
@@ -168,19 +168,19 @@ Protected Module modNSSharingService
 		    
 		    'Separators supported: ; and ,
 		    'Split Recipients to get an Array
-		    Dim sRecipients() As String = Split(ReplaceAll(psTo, ";", ","), ",")
+		    Var sRecipients() As String = Split(ReplaceAll(psTo, ";", ","), ",")
 		    For i As Integer = sRecipients.Ubound DownTo 0
 		      sRecipients(i) = Trim(sRecipients(i))
 		    Next
 		    
-		    Dim sSubject As String = Trim(psSubject)
-		    Dim sBody As String = Trim(psBody)
+		    Var sSubject As String = Trim(psSubject)
+		    Var sBody As String = Trim(psBody)
 		    
-		    Dim oAttachments() As FolderItem = poAttachments
+		    Var oAttachments() As FolderItem = poAttachments
 		    
 		    //https://developer.apple.com/documentation/appkit/nssharingservice?language=objc
 		    //Declares: NSSharingService
-		    Dim sPerformWithNSSharingServiceName As String= NSSharingServiceName_ToString_ToString(psPerformWithNSSharingServiceName)
+		    Var sPerformWithNSSharingServiceName As String= NSSharingServiceName_ToString_ToString(psPerformWithNSSharingServiceName)
 		    
 		    Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
 		    Declare Function sharingServiceNamed Lib "AppKit" selector "sharingServiceNamed:" (NSSharingServiceClass As Ptr, serviceName As CFStringRef) As Ptr
@@ -192,8 +192,8 @@ Protected Module modNSSharingService
 		    Declare Sub setDelegate Lib "AppKit" selector "setDelegate:" (id As Ptr, ptrToDelegate As Ptr)
 		    
 		    'NSSharingService instance
-		    Dim ptrNSSharingServiceClass As Ptr = NSClassFromString("NSSharingService")
-		    Dim ptrNSSharingServiceInstance As Ptr = sharingServiceNamed(ptrNSSharingServiceClass, sPerformWithNSSharingServiceName)
+		    Var ptrNSSharingServiceClass As Ptr = NSClassFromString("NSSharingService")
+		    Var ptrNSSharingServiceInstance As Ptr = sharingServiceNamed(ptrNSSharingServiceClass, sPerformWithNSSharingServiceName)
 		    
 		    
 		    //Declares: NSMutableArray
@@ -202,16 +202,16 @@ Protected Module modNSSharingService
 		    Declare Sub addObject_String Lib "Foundation" Selector "addObject:"(NSMutableArrayClass As Ptr, anObject As CFStringRef)
 		    Declare Sub addObject_Ptr Lib "Foundation" Selector "addObject:"(NSMutableArrayClass As Ptr, anObject As Ptr)
 		    
-		    Dim ptrMutableArrayClass As Ptr = NSClassFromString("NSMutableArray")
+		    Var ptrMutableArrayClass As Ptr = NSClassFromString("NSMutableArray")
 		    
 		    'Build Recipients Array
-		    Dim ptrRecipients As Ptr = init(alloc(ptrMutableArrayClass))
+		    Var ptrRecipients As Ptr = init(alloc(ptrMutableArrayClass))
 		    For Each sRecipient As String In sRecipients
 		      addObject_String(ptrRecipients, sRecipient)
 		    Next
 		    
 		    'Build Items Array for Content (Body and Attachments)
-		    Dim ptrItems As Ptr = init(alloc(ptrMutableArrayClass))
+		    Var ptrItems As Ptr = init(alloc(ptrMutableArrayClass))
 		    addObject_String(ptrItems, sBody)
 		    
 		    'add Attachments to Items Array
@@ -221,8 +221,8 @@ Protected Module modNSSharingService
 		      If (oAttachFolderItem = Nil) Or (oAttachFolderItem.Exists = False) Or oAttachFolderItem.Directory Then Continue
 		      
 		      'NSURL for Attachment
-		      Dim ptrNSURLClass As Ptr = NSClassFromString("NSURL")
-		      Dim ptrAttachment As Ptr = fileURLWithPath(ptrNSURLClass, oAttachFolderItem.NativePath)
+		      Var ptrNSURLClass As Ptr = NSClassFromString("NSURL")
+		      Var ptrAttachment As Ptr = fileURLWithPath(ptrNSURLClass, oAttachFolderItem.NativePath)
 		      
 		      addObject_Ptr(ptrItems, ptrAttachment)
 		    Next
@@ -244,7 +244,7 @@ Protected Module modNSSharingService
 		      performWithItems(ptrNSSharingServiceInstance, ptrItems)
 		      Return True
 		    Else
-		      Dim sError As String = "NSSharingService can't perform '" + sPerformWithNSSharingServiceName + "' with the assigned items."
+		      Var sError As String = "NSSharingService can't perform '" + sPerformWithNSSharingServiceName + "' with the assigned items."
 		      System.DebugLog sError
 		      Break
 		      
