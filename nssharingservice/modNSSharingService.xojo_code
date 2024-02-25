@@ -75,9 +75,9 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
-		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
+		Private Sub Delegate_Implementation_DidFailToShare(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr, error As Ptr)
 		  #Pragma unused id
-		  #Pragma unused Selector
+		  #Pragma unused selectorPtr
 		  #Pragma unused sharingServiceInstance
 		  #Pragma unused items
 		  
@@ -106,9 +106,9 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
-		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr)
+		Private Sub Delegate_Implementation_DidShareItems(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr)
 		  #pragma unused id
-		  #Pragma unused Selector
+		  #Pragma unused selectorPtr
 		  #Pragma unused sharingServiceInstance
 		  #Pragma unused items
 		  
@@ -128,9 +128,9 @@ Protected Module modNSSharingService
 	#tag EndMethod
 
 	#tag Method, Flags = &h21, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
-		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selector As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
+		Private Function Delegate_Implementation_SourceWindow(id As Ptr, selectorPtr As Ptr, sharingServiceInstance As Ptr, items As Ptr, sharingContentScope As Ptr) As Ptr
 		  #Pragma unused id
-		  #Pragma unused Selector
+		  #Pragma unused selectorPtr
 		  #Pragma unused sharingServiceInstance
 		  #Pragma unused items
 		  
