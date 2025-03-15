@@ -3,7 +3,7 @@ Begin DesktopWindow Window1
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   0
+   DefaultLocation =   2
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
@@ -25,13 +25,13 @@ Begin DesktopWindow Window1
    Visible         =   True
    Width           =   600
    Begin DesktopCanvas cnvAppIcon
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
       Enabled         =   True
       Height          =   64
-      HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   20
@@ -44,18 +44,20 @@ Begin DesktopWindow Window1
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   "#kUrl_Repository"
       Top             =   20
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   64
    End
    Begin DesktopLabel labAppName
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   True
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "https://www.jo-tools.ch/xojo/nssharingservice/"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -72,11 +74,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "NSSharingService"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c0072D800
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   "#kUrl_Repository"
       Top             =   20
       Transparent     =   True
       Underline       =   True
@@ -84,15 +84,17 @@ Begin DesktopWindow Window1
       Width           =   219
    End
    Begin DesktopLabel labThanks
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   371
+      Left            =   361
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   False
@@ -105,23 +107,23 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlign       =   3
+      TextAlignment   =   3
       TextColor       =   &c66666600
-      TextFont        =   "SmallSystem"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   209
+      Width           =   219
    End
    Begin DesktopLabel labAppVersion
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -138,11 +140,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   False
@@ -150,11 +150,13 @@ Begin DesktopWindow Window1
       Width           =   219
    End
    Begin DesktopLabel labContact
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "xojo@jo-tools.ch"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -171,11 +173,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlign       =   2
+      TextAlignment   =   0
       TextColor       =   &c0072CE00
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   "#kEmail_Contact"
       Top             =   54
       Transparent     =   True
       Underline       =   True
@@ -183,13 +183,13 @@ Begin DesktopWindow Window1
       Width           =   70
    End
    Begin DesktopCanvas cnvPayPal
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
       Enabled         =   True
       Height          =   30
-      HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   474
@@ -202,18 +202,18 @@ Begin DesktopWindow Window1
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   "#kUrl_PayPal"
       Top             =   54
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   106
    End
    Begin DesktopSeparator Separator2
+      Active          =   False
+      AllowAutoDeactivate=   True
       AllowTabStop    =   True
-      AutoDeactivate  =   True
       Enabled         =   True
       Height          =   3
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
@@ -222,20 +222,28 @@ Begin DesktopWindow Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
+      Tooltip         =   ""
       Top             =   100
       Transparent     =   True
       Visible         =   True
       Width           =   600
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
    Begin DesktopLabel labTo
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   22
-      HelpTag         =   "Note: Recipient are being Split by ; and ,"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -252,11 +260,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "To:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   115
       Transparent     =   False
       Underline       =   False
@@ -264,28 +270,29 @@ Begin DesktopWindow Window1
       Width           =   120
    End
    Begin DesktopTextField edtTo
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Border          =   True
-      CueText         =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Format          =   ""
+      HasBorder       =   True
       Height          =   22
-      HelpTag         =   ""
+      Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
       Left            =   140
-      LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Mask            =   ""
+      MaximumCharactersAllowed=   0
       Password        =   False
       ReadOnly        =   False
       Scope           =   2
@@ -293,23 +300,24 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   115
       Transparent     =   False
       Underline       =   False
-      UseFocusRing    =   True
+      ValidationMask  =   ""
       Visible         =   True
       Width           =   440
    End
    Begin DesktopLabel labSubject
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   22
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -326,11 +334,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Subject:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   150
       Transparent     =   False
       Underline       =   False
@@ -338,28 +344,29 @@ Begin DesktopWindow Window1
       Width           =   120
    End
    Begin DesktopTextField edtSubject
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Border          =   True
-      CueText         =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Format          =   ""
+      HasBorder       =   True
       Height          =   22
-      HelpTag         =   ""
+      Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
       Left            =   140
-      LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Mask            =   ""
+      MaximumCharactersAllowed=   0
       Password        =   False
       ReadOnly        =   False
       Scope           =   2
@@ -367,23 +374,24 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   150
       Transparent     =   False
       Underline       =   False
-      UseFocusRing    =   True
+      ValidationMask  =   ""
       Visible         =   True
       Width           =   440
    End
    Begin DesktopLabel labContent
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   22
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -400,11 +408,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Content:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   185
       Transparent     =   False
       Underline       =   False
@@ -412,22 +418,26 @@ Begin DesktopWindow Window1
       Width           =   120
    End
    Begin DesktopTextArea edtContent
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   True
+      AllowStyledText =   True
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Border          =   True
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Format          =   ""
+      HasBorder       =   True
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
       Height          =   127
-      HelpTag         =   ""
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
       Left            =   140
-      LimitText       =   0
       LineHeight      =   0.0
       LineSpacing     =   1.0
       LockBottom      =   True
@@ -435,35 +445,33 @@ Begin DesktopWindow Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Mask            =   ""
+      MaximumCharactersAllowed=   0
       Multiline       =   True
       ReadOnly        =   False
       Scope           =   2
-      ScrollbarHorizontal=   False
-      ScrollbarVertical=   True
-      Styled          =   True
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   185
       Transparent     =   False
       Underline       =   False
       UnicodeMode     =   0
-      UseFocusRing    =   True
+      ValidationMask  =   ""
       Visible         =   True
       Width           =   440
    End
    Begin DesktopLabel labAttachments
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -480,11 +488,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Attachments:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   325
       Transparent     =   False
       Underline       =   False
@@ -492,15 +498,16 @@ Begin DesktopWindow Window1
       Width           =   120
    End
    Begin DesktopButton btnAttachment1
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Add"
       Default         =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -510,13 +517,12 @@ Begin DesktopWindow Window1
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   False
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   325
       Transparent     =   False
       Underline       =   False
@@ -524,11 +530,13 @@ Begin DesktopWindow Window1
       Width           =   55
    End
    Begin DesktopLabel labAttachment1
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -545,11 +553,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "..."
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   325
       Transparent     =   False
       Underline       =   False
@@ -557,15 +563,16 @@ Begin DesktopWindow Window1
       Width           =   380
    End
    Begin DesktopButton btnAttachment2
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Add"
       Default         =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -575,13 +582,12 @@ Begin DesktopWindow Window1
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   False
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   357
       Transparent     =   False
       Underline       =   False
@@ -589,11 +595,13 @@ Begin DesktopWindow Window1
       Width           =   55
    End
    Begin DesktopLabel labAttachment2
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -610,11 +618,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "..."
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   357
       Transparent     =   False
       Underline       =   False
@@ -622,11 +628,11 @@ Begin DesktopWindow Window1
       Width           =   380
    End
    Begin DesktopSeparator sepSharingService
+      Active          =   False
+      AllowAutoDeactivate=   True
       AllowTabStop    =   True
-      AutoDeactivate  =   True
       Enabled         =   True
       Height          =   4
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
@@ -635,20 +641,28 @@ Begin DesktopWindow Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   18
       TabPanelIndex   =   0
+      Tooltip         =   ""
       Top             =   389
       Transparent     =   False
       Visible         =   True
       Width           =   600
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
    Begin DesktopLabel labSharingService
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -665,11 +679,9 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Sharing Service:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   405
       Transparent     =   False
       Underline       =   False
@@ -677,29 +689,29 @@ Begin DesktopWindow Window1
       Width           =   120
    End
    Begin DesktopPopupMenu lstSharingService
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
       Left            =   140
-      ListIndex       =   0
       LockBottom      =   True
       LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   False
       Scope           =   2
+      SelectedRowIndex=   0
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   405
       Transparent     =   False
       Underline       =   False
@@ -707,15 +719,16 @@ Begin DesktopWindow Window1
       Width           =   220
    End
    Begin DesktopButton btnSharingService
-      AutoDeactivate  =   True
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Compose E-Mail"
       Default         =   True
       Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -725,13 +738,12 @@ Begin DesktopWindow Window1
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   21
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   405
       Transparent     =   False
       Underline       =   False
@@ -745,12 +757,6 @@ End
 	#tag Event
 		Sub Opening()
 		  Self.Title = "NSSharingService"
-		  
-		  #If TargetMacOS Then
-		    Var rect As Xojo.Rect = Self.Bounds
-		    rect.Top = DesktopDisplay.DisplayAt(0).AvailableTop
-		    Self.Bounds = rect
-		  #EndIf
 		  
 		End Sub
 	#tag EndEvent
@@ -888,6 +894,16 @@ End
 	#tag EndProperty
 
 
+	#tag Constant, Name = kEmail_Contact, Type = String, Dynamic = False, Default = \"xojo@jo-tools.ch", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kUrl_PayPal, Type = String, Dynamic = False, Default = \"https://paypal.me/jotools", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kUrl_Repository, Type = String, Dynamic = False, Default = \"https://github.com/jo-tools/nssharingservice", Scope = Private
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
 #tag Events cnvAppIcon
@@ -901,7 +917,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		    System.GotoURL(kUrl_Repository)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -936,7 +952,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://www.jo-tools.ch/xojo/nssharingservice/")
+		    System.GotoURL(kUrl_Repository)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -995,7 +1011,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:" + kEmail_Contact)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -1027,7 +1043,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://paypal.me/jotools")
+		    System.GotoURL(kUrl_PayPal)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -1264,8 +1280,7 @@ End
 			"6 - Rounded Window"
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
-			"9 - Metal Window"
-			"11 - Modeless Dialog"
+			"9 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -1328,8 +1343,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
@@ -1440,7 +1455,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
